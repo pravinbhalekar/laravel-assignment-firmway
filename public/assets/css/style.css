@@ -1,0 +1,54 @@
+:root {
+    --main-bg: #e91e63;
+}
+
+.main-bg {
+    background: var(--main-bg) !important;
+}
+
+input:focus,
+button:focus {
+    border: 1px solid var(--main-bg) !important;
+    box-shadow: none !important;
+}
+
+.form-check-input:checked {
+    background-color: var(--main-bg) !important;
+    border-color: var(--main-bg) !important;
+}
+
+.card,
+.btn,
+input {
+    border-radius: 0 !important;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+}
+
+footer {
+    color: #fff;
+    bottom: 0px;
+    width: 100%;
+}
+
+label.error {
+    color: red;
+    margin-top: 5px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.card-text {
+    text-align: justify;
+}
+
+a.nav-link {
+    color: #fff !important;
+}
