@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\QueueJob;
-use App\Mail\DailyUpdateMail;
 use App\Models\PostModel;
-use App\Models\User;
 use Illuminate\Http\Request;
 
 class WebController extends Controller
