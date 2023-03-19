@@ -32,6 +32,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
     
+    //post routes
     Route::get('/add-post', [PostController::class, 'index'])->name('add-post');
     Route::get('/edit-post/{id}', [PostController::class, 'edit'])->name('edit-post');
     Route::post('/submit-post', [PostController::class, 'store'])->name('submit-post');
