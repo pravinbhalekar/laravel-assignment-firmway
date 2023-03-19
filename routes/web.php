@@ -19,7 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [WebController::class, 'index'])->name('homepage');
 Route::get('/post/{slug}', [WebController::class, 'show'])->name('view-post');
-Route::get('/daily-update-email', [WebController::class, 'dailyUpdateEmail'])->name('daily-update-email');
+
+Route::get('/sort-array', [WebController::class, 'sortArray'])->name('sort-array');
+
 
 Auth::routes();
 

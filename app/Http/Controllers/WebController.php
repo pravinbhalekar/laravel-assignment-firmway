@@ -27,9 +27,30 @@ class WebController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function sortArray()
     {
-        //
+        try {
+            //array input
+            $input = [0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1];
+            //call sort array function
+            return $this->sortArrayByAsc($input);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+    /**
+     * @purpose : sort array by asc order
+     */
+    public function sortArrayByAsc($array = [])
+    {
+        try {
+            $collection = collect($array);
+            $sorted = $collection->sort();
+            $result = $sorted->values()->all();
+            return json_encode($result);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**

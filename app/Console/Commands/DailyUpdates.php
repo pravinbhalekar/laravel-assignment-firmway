@@ -47,7 +47,6 @@ class DailyUpdates extends Command
         $plucked  = $collection->pluck('email');
         $emails = $plucked->all();
 
-        // $emails = ['aa@yopmail.com','bb@yopmail.com','cc@yopmail.com'];
         //dispatch
         dispatch(new QueueJob($emails));
 
