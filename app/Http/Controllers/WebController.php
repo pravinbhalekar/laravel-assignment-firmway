@@ -65,34 +65,6 @@ class WebController extends Controller
             throw $th;
         }
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function dailyUpdateEmail()
-    {
-        try {
-            //get email list
-            $users = User::select('email')->get();
-
-            //create a new array of email
-            $collection = collect($users);
-            $plucked  = $collection->pluck('email');
-            $emails = $plucked->all();
-
-            // $emails = ['aa@yopmail.com','bb@yopmail.com','cc@yopmail.com'];
-            //dispatch
-            dispatch(new QueueJob($emails));
-
-            return 'Email send successfully';
-        } catch (\Throwable $th) {
-            throw $th;
-        }
-    }
-
     /**
      * Update the specified resource in storage.
      *

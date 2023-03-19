@@ -20,7 +20,7 @@ class DailyUpdates extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Send an daily updates email to all users';
 
     /**
      * Create a new command instance.
