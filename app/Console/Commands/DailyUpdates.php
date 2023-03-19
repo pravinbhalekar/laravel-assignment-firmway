@@ -2,6 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\Jobs\QueueJob;
+use App\Models\User;
 use Illuminate\Console\Command;
 
 class DailyUpdates extends Command
@@ -11,7 +13,7 @@ class DailyUpdates extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'command:send-daily-updates';
 
     /**
      * The console command description.
@@ -21,12 +23,36 @@ class DailyUpdates extends Command
     protected $description = 'Command description';
 
     /**
+     * Create a new command instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    /**
      * Execute the console command.
      *
      * @return int
      */
     public function handle()
     {
-        return Command::SUCCESS;
+        //get email list
+        $users = User::select('email')->get();
+
+        //create a new array of email
+        $collection = collect($users);
+        $plucked  = $collection->pluck('email');
+        $emails = $plucked->all();
+
+        // $emails = ['aa@yopmail.com','bb@yopmail.com','cc@yopmail.com'];
+        //dispatch
+        dispatch(new QueueJob($emails));
+
+        return 'Email send successfully';
+
+        // return Command::SUCCESS;
     }
 }
