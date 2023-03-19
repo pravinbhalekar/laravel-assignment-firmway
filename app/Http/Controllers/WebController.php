@@ -59,9 +59,29 @@ class WebController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function countPairs()
     {
-        //
+        try {
+            $arr = [1, 2, 5, 10, 5];
+            $L = 2;
+            $R = 15;
+
+            //count
+            $count = 0;
+
+            for ($i = 0; $i < count($arr); $i++) {
+                //
+                for ($j = $i + 1; $j < count($arr); $j++) {
+                    // condition
+                    if ($arr[$i] * $arr[$j] >= $L && $arr[$i] * $arr[$j] <= $R) {
+                        $count++;
+                    }
+                }
+            }
+            return $count;
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**

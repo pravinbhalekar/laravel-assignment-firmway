@@ -20,8 +20,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [WebController::class, 'index'])->name('homepage');
 Route::get('/post/{slug}', [WebController::class, 'show'])->name('view-post');
 
+//sort array
 Route::get('/sort-array', [WebController::class, 'sortArray'])->name('sort-array');
 
+//count pairs
+Route::get('/count-pairs', [WebController::class, 'countPairs'])->name('count-pairs');
 
 Auth::routes();
 
